@@ -47,6 +47,9 @@ module Lightspeed
       extract_rate_limits(response)
       if response.code == "200"
         handle_success(response)
+      elsif response.code == "429"
+        sleep(1)
+        perform_raw
       else
         handle_error(response)
       end
