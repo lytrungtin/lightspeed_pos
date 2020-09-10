@@ -48,6 +48,7 @@ module Lightspeed
       if response.code == "200"
         handle_success(response)
       elsif response.code == "429"
+        puts "Sleep start 1 second because 429 too many requests to Lightspeed"
         sleep(1)
         perform_raw
       else
